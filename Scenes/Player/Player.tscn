@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://cg02mjxvognn1"]
+
+[ext_resource type="Script" path="res://Scenes/Player/Torch.gd" id="1_df601"]
+
+[node name="Player" type="Node3D"]
+
+[node name="Torch" type="OmniLight3D" parent="."]
+light_color = Color(0.964706, 0.603922, 0.337255, 1)
+script = ExtResource("1_df601")
+
+[node name="View" type="Camera3D" parent="."]
+
+[node name="Forwards_Collision" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, -1)
+
+[node name="Backwards_Collision" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, 1)
+
+[node name="Left_Collision" type="RayCast3D" parent="."]
+target_position = Vector3(-1, 0, 0)
+
+[node name="Right_Collision" type="RayCast3D" parent="."]
+target_position = Vector3(1, 0, 0)

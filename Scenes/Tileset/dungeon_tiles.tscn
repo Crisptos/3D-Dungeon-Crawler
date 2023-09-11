@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://chi7bbmlapnuf"]
+
+[ext_resource type="PackedScene" uid="uid://bdya5dtlagbeo" path="res://Assets/Meshes/dungeon_tiles.glb" id="1_lcsmg"]
+
+[node name="dungeon_tiles" instance=ExtResource("1_lcsmg")]

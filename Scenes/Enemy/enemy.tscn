@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2aioaho0rgm2"]
+
+[ext_resource type="PackedScene" uid="uid://sr8owrx85ynv" path="res://Assets/Meshes/Smooth_Male_Casual.glb" id="1_pht6j"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4o0g0"]
+
+[node name="Enemy" instance=ExtResource("1_pht6j")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="HumanArmature/Skeleton3D/BaseHuman" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HumanArmature/Skeleton3D/BaseHuman/StaticBody3D" index="0"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 3, 0)
+shape = SubResource("BoxShape3D_4o0g0")
