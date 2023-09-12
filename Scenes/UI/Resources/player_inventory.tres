@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="InventoryData" load_steps=5 format=3 uid="uid://c8kfcjilj54xu"]
+
+[ext_resource type="Script" path="res://Scenes/UI/inventory_data.gd" id="1_yqttx"]
+[ext_resource type="Resource" uid="uid://h306chbm5cfp" path="res://Scenes/UI/Resources/health_potion.tres" id="2_fqjlg"]
+[ext_resource type="Script" path="res://Scenes/UI/slot_data.gd" id="3_ehmml"]
+
+[sub_resource type="Resource" id="Resource_elyvx"]
+script = ExtResource("3_ehmml")
+item_data = ExtResource("2_fqjlg")
+total = 6
+
+[resource]
+script = ExtResource("1_yqttx")
+slot_array = Array[ExtResource("3_ehmml")]([null, null, null, null, null, null, null, null, SubResource("Resource_elyvx"), null, null, null, null, null, null, null, null, null])

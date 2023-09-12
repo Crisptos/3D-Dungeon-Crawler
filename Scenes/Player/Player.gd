@@ -1,5 +1,9 @@
 extends Node3D
 
+@export var inventory_data: InventoryData
+
+signal toggle_inventory()
+
 @onready var front : = $Forwards_Collision
 @onready var back : = $Backwards_Collision
 @onready var left : = $Left_Collision
@@ -32,3 +36,9 @@ func _physics_process(_delta):
 	if Input.is_action_pressed("turn_right"):
 		tween = create_tween().set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 		tween.tween_property(self, "transform:basis", transform.basis.rotated(Vector3.UP, -PI / 2), 0.5)
+
+func _unhandled_input(event):
+	if Input.is_action_pressed("toggle_inv"):
+		toggle_inventory.emit()
+
+
