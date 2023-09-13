@@ -10,7 +10,6 @@ func set_inventory(inventory_data: InventoryData) -> void:
 	
 	
 func populate_item_slots(inventory_data) -> void:
-	
 	for slot in Slots.get_children():
 		slot.queue_free()
 	

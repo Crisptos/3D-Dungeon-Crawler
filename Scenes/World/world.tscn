@@ -1,12 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://wyrxg6dlsry4"]
+[gd_scene load_steps=12 format=3 uid="uid://wyrxg6dlsry4"]
 
 [ext_resource type="MeshLibrary" uid="uid://ry7ef4oi4gp2" path="res://Assets/Meshes/dungeon_tileset.tres" id="1_fmiva"]
 [ext_resource type="Script" path="res://Scenes/World/main.gd" id="1_hugcn"]
 [ext_resource type="PackedScene" uid="uid://cg02mjxvognn1" path="res://Scenes/Player/Player.tscn" id="2_cdrrv"]
+[ext_resource type="PackedScene" uid="uid://dtnevh1eagoqk" path="res://Scenes/Tileset/chest.tscn" id="4_b2emw"]
 [ext_resource type="PackedScene" uid="uid://b2aioaho0rgm2" path="res://Scenes/Enemy/enemy.tscn" id="4_wvjda"]
 [ext_resource type="PackedScene" uid="uid://docjn5forn874" path="res://Scenes/UI/inventory.tscn" id="5_hykdu"]
 [ext_resource type="Script" path="res://Scenes/UI/InventoryManager.gd" id="5_rf7bj"]
-[ext_resource type="PackedScene" uid="uid://cwu5annkckajb" path="res://Scenes/UI/inventory_slot.tscn" id="7_u3i4y"]
+[ext_resource type="PackedScene" uid="uid://b2yiuhtvcyt8u" path="res://Scenes/UI/grabbed_inventory_slot.tscn" id="7_6k4vu"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o65al"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -42,6 +43,9 @@ data = {
 [node name="Player" parent="." instance=ExtResource("2_cdrrv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, 0.5)
 
+[node name="Chest" parent="." instance=ExtResource("4_b2emw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.5, 0, 0.5)
+
 [node name="Enemy" parent="." instance=ExtResource("4_wvjda")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 1.5, 0, -5.5)
 
@@ -65,9 +69,10 @@ offset_top = 10.0
 offset_right = 50.0
 offset_bottom = 50.0
 
-[node name="GrabbedSlot" parent="UI/InventoryManager" instance=ExtResource("7_u3i4y")]
+[node name="GrabbedSlot" parent="UI/InventoryManager" instance=ExtResource("7_6k4vu")]
 visible = false
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 0
+layout_mode = 2
 offset_right = 64.0
 offset_bottom = 64.0
+
+[connection signal="close_while_selected" from="." to="UI/InventoryManager" method="_on_world_close_while_selected"]

@@ -12,3 +12,4 @@ total = 6
 [resource]
 script = ExtResource("1_yqttx")
 slot_array = Array[ExtResource("3_ehmml")]([null, null, null, null, null, null, null, null, SubResource("Resource_elyvx"), null, null, null, null, null, null, null, null, null])
+id = 0

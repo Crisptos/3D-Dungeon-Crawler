@@ -13,5 +13,9 @@ func set_total(n: int) -> void:
 		total = 1
 		push_error("%s is non-stackable item contained multiple items. Reseting to 1" % item_data.name)
 
+func get_total() -> int:
+	return total
+
 func use_item() -> void:
-	total -= 1
+	if total > 0:
+		total -= 1

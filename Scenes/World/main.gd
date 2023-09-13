@@ -1,6 +1,10 @@
 extends Node3D
 
+signal close_while_selected()
+
 @onready var player = $Player
+@onready var chest = $Chest
+
 @onready var inventory_manager = $UI/InventoryManager
 
 func _ready() -> void:
@@ -8,4 +12,6 @@ func _ready() -> void:
 	inventory_manager.set_player_inventory(player.inventory_data)
 
 func toggle_inventory_interface():
+	if inventory_manager.grabbed_slot.visible:
+		close_while_selected.emit()
 	inventory_manager.visible = !inventory_manager.visible

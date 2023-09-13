@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://dtnevh1eagoqk"]
+
+[ext_resource type="PackedScene" uid="uid://bwbmflum7u8tn" path="res://Assets/Meshes/chest.glb" id="1_ib4cc"]
+[ext_resource type="Script" path="res://Scenes/Tileset/chest.gd" id="2_i2b8m"]
+[ext_resource type="Resource" uid="uid://dinccgwrikc07" path="res://Scenes/UI/Resources/chest_inventory.tres" id="3_bjmoo"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_7dp34"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_55841"]
+
+[node name="chest" instance=ExtResource("1_ib4cc")]
+script = ExtResource("2_i2b8m")
+inventory_data = ExtResource("3_bjmoo")
+
+[node name="MouseDetection" type="Area3D" parent="." index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MouseDetection" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("SphereShape3D_7dp34")
+
+[node name="CollisionBox" type="StaticBody3D" parent="Bottom" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00572287, -0.217337, 0)
+
+[node name="CollisionBoxShape" type="CollisionShape3D" parent="Bottom/CollisionBox" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_55841")
+
+[connection signal="input_event" from="MouseDetection" to="." method="_on_mouse_detection_input_event"]
