@@ -1,0 +1,79 @@
+[gd_scene load_steps=9 format=3 uid="uid://b38ojhkpep24a"]
+
+[ext_resource type="Texture2D" uid="uid://cpg87kqcyo0ac" path="res://Assets/Textures/UI/Party/Character Portraits/placeholder.png" id="1_wvt83"]
+[ext_resource type="Script" path="res://Scenes/UI/Party/character.gd" id="1_yxcfx"]
+[ext_resource type="Texture2D" uid="uid://cl427mnq3erer" path="res://Assets/Textures/UI/Party/empty.png" id="2_jpv87"]
+[ext_resource type="Texture2D" uid="uid://bhocjl5nnioq8" path="res://Assets/Textures/UI/Party/health_full.png" id="3_cmyye"]
+[ext_resource type="Texture2D" uid="uid://dmx6wkvctnco3" path="res://Assets/Textures/UI/Party/stamina_full.png" id="4_3e6ju"]
+[ext_resource type="Texture2D" uid="uid://bghwbkl7d2o6a" path="res://Assets/Textures/UI/Party/mana_full.png" id="5_n1rdg"]
+[ext_resource type="Texture2D" uid="uid://b2qgn7qrceak0" path="res://Assets/Textures/UI/Party/left_hand.png" id="6_5kkcn"]
+[ext_resource type="Texture2D" uid="uid://qhs4awjlwvsq" path="res://Assets/Textures/UI/Party/right_hand.png" id="7_kv1nr"]
+
+[node name="Character" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 133.0
+offset_bottom = 132.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_yxcfx")
+
+[node name="Portrait" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 2
+offset_right = 64.0
+offset_bottom = 64.0
+texture = ExtResource("1_wvt83")
+stretch_mode = 2
+
+[node name="Bars" type="HBoxContainer" parent="."]
+layout_direction = 2
+layout_mode = 2
+offset_left = 68.0
+offset_right = 124.0
+offset_bottom = 64.0
+
+[node name="Health" type="TextureProgressBar" parent="Bars"]
+texture_filter = 1
+layout_mode = 2
+value = 100.0
+fill_mode = 3
+texture_under = ExtResource("2_jpv87")
+texture_progress = ExtResource("3_cmyye")
+
+[node name="Stamina" type="TextureProgressBar" parent="Bars"]
+texture_filter = 1
+layout_mode = 2
+value = 100.0
+fill_mode = 3
+texture_under = ExtResource("2_jpv87")
+texture_progress = ExtResource("4_3e6ju")
+
+[node name="Mana" type="TextureProgressBar" parent="Bars"]
+texture_filter = 1
+layout_mode = 2
+value = 100.0
+fill_mode = 3
+texture_under = ExtResource("2_jpv87")
+texture_progress = ExtResource("5_n1rdg")
+
+[node name="Left Hand" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 2
+offset_top = 68.0
+offset_right = 64.0
+offset_bottom = 132.0
+texture = ExtResource("6_5kkcn")
+stretch_mode = 2
+
+[node name="Right Hand" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 2
+offset_left = 68.0
+offset_top = 68.0
+offset_right = 132.0
+offset_bottom = 132.0
+texture = ExtResource("7_kv1nr")
+stretch_mode = 2
+
+[connection signal="gui_input" from="Portrait" to="." method="_on_portrait_gui_input"]

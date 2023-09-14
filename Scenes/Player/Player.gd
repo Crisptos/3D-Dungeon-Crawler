@@ -1,6 +1,7 @@
 extends Node3D
 
 @export var inventory_data: InventoryData
+@export var party_data: PartyData
 
 signal toggle_inventory()
 
@@ -37,7 +38,7 @@ func _physics_process(_delta):
 		tween = create_tween().set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 		tween.tween_property(self, "transform:basis", transform.basis.rotated(Vector3.UP, -PI / 2), 0.5)
 
-func _unhandled_input(event):
+func _unhandled_input(_event):
 	if Input.is_action_pressed("toggle_inv"):
 		toggle_inventory.emit()
 

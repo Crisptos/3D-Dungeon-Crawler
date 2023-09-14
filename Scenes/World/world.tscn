@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://wyrxg6dlsry4"]
+[gd_scene load_steps=14 format=3 uid="uid://wyrxg6dlsry4"]
 
 [ext_resource type="MeshLibrary" uid="uid://ry7ef4oi4gp2" path="res://Assets/Meshes/dungeon_tileset.tres" id="1_fmiva"]
 [ext_resource type="Script" path="res://Scenes/World/main.gd" id="1_hugcn"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://docjn5forn874" path="res://Scenes/UI/inventory.tscn" id="5_hykdu"]
 [ext_resource type="Script" path="res://Scenes/UI/InventoryManager.gd" id="5_rf7bj"]
 [ext_resource type="PackedScene" uid="uid://b2yiuhtvcyt8u" path="res://Scenes/UI/grabbed_inventory_slot.tscn" id="7_6k4vu"]
+[ext_resource type="Script" path="res://Scenes/UI/Party/PartyManager.gd" id="9_ko7i4"]
+[ext_resource type="PackedScene" uid="uid://blf4o5o40v0hm" path="res://Scenes/UI/Party/party.tscn" id="9_o6dsp"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o65al"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -63,16 +65,41 @@ script = ExtResource("5_rf7bj")
 metadata/_edit_use_anchors_ = true
 
 [node name="PlayerInventory" parent="UI/InventoryManager" instance=ExtResource("5_hykdu")]
-layout_mode = 0
-offset_left = 10.0
-offset_top = 10.0
-offset_right = 50.0
-offset_bottom = 50.0
+layout_mode = 1
+offset_right = 0.0
+offset_bottom = 0.0
 
 [node name="GrabbedSlot" parent="UI/InventoryManager" instance=ExtResource("7_6k4vu")]
 visible = false
 layout_mode = 2
 offset_right = 64.0
 offset_bottom = 64.0
+
+[node name="PartyManager" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("9_ko7i4")
+
+[node name="Party" parent="UI/PartyManager" instance=ExtResource("9_o6dsp")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -14.8
+anchor_top = 1.0
+anchor_right = -14.8
+anchor_bottom = 1.0
+offset_left = 85.0001
+offset_top = -104.0
+offset_right = 704.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 0
 
 [connection signal="close_while_selected" from="." to="UI/InventoryManager" method="_on_world_close_while_selected"]

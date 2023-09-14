@@ -9,7 +9,7 @@ var id_holder: int
 
 var inventory_lookup = {}
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if grabbed_slot.visible:
 		grabbed_slot.global_position = get_global_mouse_position() + Vector2(5,5)
 

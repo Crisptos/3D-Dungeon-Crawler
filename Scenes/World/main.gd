@@ -6,10 +6,12 @@ signal close_while_selected()
 @onready var chest = $Chest
 
 @onready var inventory_manager = $UI/InventoryManager
+@onready var party_manager = $UI/PartyManager
 
 func _ready() -> void:
 	player.toggle_inventory.connect(toggle_inventory_interface)
 	inventory_manager.set_player_inventory(player.inventory_data)
+	party_manager.set_player_party(player.party_data)
 
 func toggle_inventory_interface():
 	if inventory_manager.grabbed_slot.visible:

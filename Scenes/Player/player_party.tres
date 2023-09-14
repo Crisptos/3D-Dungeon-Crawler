@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="PartyData" load_steps=7 format=3 uid="uid://bd6l4kiwp5wdk"]
+
+[ext_resource type="Script" path="res://Scenes/Player/player_data.gd" id="1_1cotf"]
+[ext_resource type="Script" path="res://Scenes/Player/party_data.gd" id="1_2hu6g"]
+
+[sub_resource type="Resource" id="Resource_un4fn"]
+script = ExtResource("1_1cotf")
+name = "Adventurer"
+race = "Adventurer"
+health = 100
+level = 1
+xp = 0
+
+[sub_resource type="Resource" id="Resource_o8r2a"]
+script = ExtResource("1_1cotf")
+name = "Adventurer"
+race = "Adventurer"
+health = 100
+level = 1
+xp = 0
+
+[sub_resource type="Resource" id="Resource_ini4t"]
+script = ExtResource("1_1cotf")
+name = "Adventurer"
+race = "Adventurer"
+health = 100
+level = 1
+xp = 0
+
+[sub_resource type="Resource" id="Resource_6pghw"]
+script = ExtResource("1_1cotf")
+name = "Adventurer"
+race = "Adventurer"
+health = 100
+level = 1
+xp = 0
+
+[resource]
+script = ExtResource("1_2hu6g")
+party_members = Array[ExtResource("1_1cotf")]([SubResource("Resource_un4fn"), SubResource("Resource_o8r2a"), SubResource("Resource_ini4t"), SubResource("Resource_6pghw")])
