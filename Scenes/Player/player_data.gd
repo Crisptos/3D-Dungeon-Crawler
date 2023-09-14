@@ -1,3 +1,5 @@
+# Encapsulates all the data of a single player character within a party
+
 extends Resource
 
 class_name PlayerData

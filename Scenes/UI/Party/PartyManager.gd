@@ -1,3 +1,5 @@
+# PartyManager script is used by main to make calls to the player party
+
 extends Control
 
 @onready var party = $Party

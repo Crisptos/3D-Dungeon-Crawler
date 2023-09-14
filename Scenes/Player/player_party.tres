@@ -8,6 +8,8 @@ script = ExtResource("1_1cotf")
 name = "Adventurer"
 race = "Adventurer"
 health = 100
+stamina = 100
+mana = 100
 level = 1
 xp = 0
 
@@ -16,6 +18,8 @@ script = ExtResource("1_1cotf")
 name = "Adventurer"
 race = "Adventurer"
 health = 100
+stamina = 100
+mana = 100
 level = 1
 xp = 0
 
@@ -24,6 +28,8 @@ script = ExtResource("1_1cotf")
 name = "Adventurer"
 race = "Adventurer"
 health = 100
+stamina = 100
+mana = 100
 level = 1
 xp = 0
 
@@ -32,6 +38,8 @@ script = ExtResource("1_1cotf")
 name = "Adventurer"
 race = "Adventurer"
 health = 100
+stamina = 100
+mana = 100
 level = 1
 xp = 0
 

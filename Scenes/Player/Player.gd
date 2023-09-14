@@ -1,9 +1,9 @@
+# This player script handles any physics and 3D movement in the world scene.
+
 extends Node3D
 
-@export var inventory_data: InventoryData
+@export var party_inventories: Array[InventoryData]
 @export var party_data: PartyData
-
-signal toggle_inventory()
 
 @onready var front : = $Forwards_Collision
 @onready var back : = $Backwards_Collision
@@ -13,6 +13,7 @@ signal toggle_inventory()
 
 var tween
 
+# Called every physics frame. Creates a Tween which executes a change in a value over a specified amount of time
 func _physics_process(_delta):
 	if tween is Tween:
 		if tween.is_running():
@@ -37,9 +38,5 @@ func _physics_process(_delta):
 	if Input.is_action_pressed("turn_right"):
 		tween = create_tween().set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 		tween.tween_property(self, "transform:basis", transform.basis.rotated(Vector3.UP, -PI / 2), 0.5)
-
-func _unhandled_input(_event):
-	if Input.is_action_pressed("toggle_inv"):
-		toggle_inventory.emit()
 
 

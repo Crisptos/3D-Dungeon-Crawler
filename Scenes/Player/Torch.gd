@@ -1,3 +1,5 @@
+# A script that creates a subtle torch flickering effect using a tween
+
 extends OmniLight3D
 
 var rand = RandomNumberGenerator.new()

@@ -18,13 +18,12 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_yxcfx")
 
-[node name="Portrait" type="TextureRect" parent="."]
+[node name="Portrait" type="TextureButton" parent="."]
 texture_filter = 1
 layout_mode = 2
 offset_right = 64.0
 offset_bottom = 64.0
-texture = ExtResource("1_wvt83")
-stretch_mode = 2
+texture_normal = ExtResource("1_wvt83")
 
 [node name="Bars" type="HBoxContainer" parent="."]
 layout_direction = 2
@@ -76,4 +75,4 @@ offset_bottom = 132.0
 texture = ExtResource("7_kv1nr")
 stretch_mode = 2
 
-[connection signal="gui_input" from="Portrait" to="." method="_on_portrait_gui_input"]
+[connection signal="pressed" from="Portrait" to="." method="_on_portrait_pressed"]

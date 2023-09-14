@@ -13,9 +13,9 @@ script = ExtResource("2_i2b8m")
 inventory_data = ExtResource("3_bjmoo")
 
 [node name="MouseDetection" type="Area3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MouseDetection" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("SphereShape3D_7dp34")
 
 [node name="CollisionBox" type="StaticBody3D" parent="Bottom" index="0"]

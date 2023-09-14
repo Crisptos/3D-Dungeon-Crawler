@@ -1,3 +1,5 @@
+# Character script that recieves a PlayerData resource type and uses it to populate and update its children GUI nodes
+
 extends Control
 
 signal portrait_clicked(index: int)
@@ -9,7 +11,7 @@ signal portrait_clicked(index: int)
 @onready var left_hand = $"Left Hand"
 @onready var right_hand = $"Right Hand"
 
-
+# Called by the parent party GUI node script. Uses PartyData to populate UI elements
 func set_portrait(player_data: PlayerData):
 	if player_data.portrait:
 		portrait.texture = player_data.portrait
@@ -20,7 +22,5 @@ func set_portrait(player_data: PlayerData):
 	mana.max_value = player_data.health
 	mana.value = player_data.health
 
-func _on_portrait_gui_input(event):
-	if event is InputEventMouseButton \
-	and event.button_index == MOUSE_BUTTON_LEFT:
-		portrait_clicked.emit(get_index())
+func _on_portrait_pressed():
+	portrait_clicked.emit(get_index())

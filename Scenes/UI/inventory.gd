@@ -1,14 +1,20 @@
+# Script for the PlayerInventory node in the world scene. Recieves InventoryData and sends it to its children slots by order to populate them
+
 extends PanelContainer
 
 const inventory_slot = preload("res://Scenes/UI/inventory_slot.tscn")
 
 @onready var Slots = $MarginContainer/Slots
 
+# Called by the InventoryManager script when an inventory needs to be updated or initialized
 func set_inventory(inventory_data: InventoryData) -> void:
 	inventory_data.inventory_updated.connect(populate_item_slots)
 	populate_item_slots(inventory_data)
-	
-	
+
+func update_inventory(inventory_data: InventoryData) -> void:
+	populate_item_slots(inventory_data)
+
+# Iterate through its children item slots and send to them the SlotData within the InventoryData it recieved
 func populate_item_slots(inventory_data) -> void:
 	for slot in Slots.get_children():
 		slot.queue_free()

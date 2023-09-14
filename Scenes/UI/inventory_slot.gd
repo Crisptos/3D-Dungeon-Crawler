@@ -1,3 +1,5 @@
+# Script for the inventory slot GUI module. Recieves and uses SlotData to update its children GUI elements
+
 extends PanelContainer
 
 signal slot_clicked(index: int, button: int)
@@ -5,6 +7,7 @@ signal slot_clicked(index: int, button: int)
 @onready var item_texture = $MarginContainer/ItemTexture
 @onready var quantity_label = $QuantityLabel
 
+# Set its children
 func set_slot_data(slot_data: SlotData) -> void:
 	var item_data : ItemData = slot_data.item_data
 	item_texture.texture = item_data.texture
@@ -17,7 +20,7 @@ func set_slot_data(slot_data: SlotData) -> void:
 		quantity_label.hide()
 		
 
-
+# Event function called when clicked on
 func _on_gui_input(event) -> void:
 	if event is InputEventMouseButton \
 		and (event.button_index == MOUSE_BUTTON_RIGHT \
