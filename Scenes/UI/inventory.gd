@@ -4,6 +4,7 @@ extends PanelContainer
 
 const inventory_slot = preload("res://Scenes/UI/inventory_slot.tscn")
 
+var dragging: bool = false
 @onready var Slots = $MarginContainer/Slots
 
 # Called by the InventoryManager script when an inventory needs to be updated or initialized
@@ -27,3 +28,14 @@ func populate_item_slots(inventory_data) -> void:
 		
 		if slot_data:
 			slot.set_slot_data(slot_data)
+
+# Draggable window event
+func _on_gui_input(event):
+	if event is InputEventMouseButton:
+		dragging = true
+	else:
+		dragging = false
+
+func _physics_process(delta):
+	if dragging:
+		global_position = get_global_mouse_position() + Vector2(-5,-5)

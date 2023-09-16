@@ -9,9 +9,9 @@ var index_holder: int
 # A temporary inventory ID holder that used during 'transactions' to remember the ID of the inventory an item originated from
 var id_holder: int
 
-@onready var player_inventory = $PlayerInventory
+const character_inventory = preload("res://Scenes/UI/inventory.tscn")
 @onready var grabbed_slot = $GrabbedSlot
-@onready var chest_inventory = $ChestInventory
+@onready var party_inventories = $PartyInventories
 
 # A hash map that stores and allows easy look up of all current inventories in the scene
 var inventory_lookup = {}
@@ -24,18 +24,18 @@ func _physics_process(_delta):
 func add_inventory(inventory_data: InventoryData):
 	inventory_lookup[inventory_data.get_id()] = inventory_data
 	inventory_data.inventory_interact.connect(on_inventory_interact)
+	var player_inventory = character_inventory.instantiate()
+	party_inventories.add_child(player_inventory)
+	player_inventory.hide()
 	player_inventory.set_inventory(inventory_data)
 
 # Called by the main script to initialize the player inventory
 func set_player_inventory(index: int) -> void:
 	var inventory_data = inventory_lookup[index]
-	player_inventory.update_inventory(inventory_data)
+	party_inventories.get_children()[index].update_inventory(inventory_data)
 
-func toggle_chest_inventory():
-	chest_inventory.visible = !player_inventory.visible
-
-func toggle_player_inventory():
-	player_inventory.visible = !player_inventory.visible
+func toggle_player_inventory(index: int):
+	party_inventories.get_children()[index].visible = !party_inventories.get_children()[index].visible
 
 # Event handler function that's called whenever an interaction takes place
 func on_inventory_interact(inventory_data: InventoryData, index: int, button: int):
@@ -72,4 +72,4 @@ func _on_world_close_while_selected():
 
 func _on_party_portrait_inventory_opened(index):
 	set_player_inventory(index)
-	toggle_player_inventory()
+	toggle_player_inventory(index)

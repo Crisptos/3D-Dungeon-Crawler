@@ -1,11 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://wyrxg6dlsry4"]
+[gd_scene load_steps=13 format=3 uid="uid://wyrxg6dlsry4"]
 
 [ext_resource type="MeshLibrary" uid="uid://ry7ef4oi4gp2" path="res://Assets/Meshes/dungeon_tileset.tres" id="1_fmiva"]
 [ext_resource type="Script" path="res://Scenes/World/main.gd" id="1_hugcn"]
 [ext_resource type="PackedScene" uid="uid://cg02mjxvognn1" path="res://Scenes/Player/Player.tscn" id="2_cdrrv"]
 [ext_resource type="PackedScene" uid="uid://dtnevh1eagoqk" path="res://Scenes/Tileset/chest.tscn" id="4_b2emw"]
 [ext_resource type="PackedScene" uid="uid://b2aioaho0rgm2" path="res://Scenes/Enemy/enemy.tscn" id="4_wvjda"]
-[ext_resource type="PackedScene" uid="uid://docjn5forn874" path="res://Scenes/UI/inventory.tscn" id="5_hykdu"]
 [ext_resource type="Script" path="res://Scenes/UI/InventoryManager.gd" id="5_rf7bj"]
 [ext_resource type="PackedScene" uid="uid://b2yiuhtvcyt8u" path="res://Scenes/UI/grabbed_inventory_slot.tscn" id="7_6k4vu"]
 [ext_resource type="Script" path="res://Scenes/UI/Party/PartyManager.gd" id="9_ko7i4"]
@@ -63,21 +62,16 @@ grow_vertical = 2
 script = ExtResource("5_rf7bj")
 metadata/_edit_use_anchors_ = true
 
-[node name="PlayerInventory" parent="UI/InventoryManager" instance=ExtResource("5_hykdu")]
-visible = false
-layout_mode = 1
-offset_right = 0.0
-offset_bottom = 0.0
+[node name="PartyInventories" type="Control" parent="UI/InventoryManager"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="GrabbedSlot" parent="UI/InventoryManager" instance=ExtResource("7_6k4vu")]
 visible = false
 layout_mode = 2
 offset_right = 64.0
 offset_bottom = 64.0
-
-[node name="ChestInventory" parent="UI/InventoryManager" instance=ExtResource("5_hykdu")]
-visible = false
-layout_mode = 0
 
 [node name="PartyManager" type="Control" parent="UI"]
 layout_mode = 3
