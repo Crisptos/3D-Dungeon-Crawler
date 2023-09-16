@@ -18,7 +18,6 @@ func set_slot_data(slot_data: SlotData) -> void:
 		quantity_label.show()
 	else:
 		quantity_label.hide()
-		
 
 # Event function called when clicked on
 func _on_gui_input(event) -> void:

@@ -17,6 +17,7 @@ func set_characters(party_data: PartyData):
 		party_members.add_child(character)
 		character.portrait_clicked.connect(on_portrait_clicked)
 		character.set_portrait(member)
+		CharacterHandler.chars.append(character)
 
 # Called when one of its child's portraits is clicked
 func on_portrait_clicked(index: int) -> void:

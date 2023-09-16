@@ -2,15 +2,15 @@
 
 [ext_resource type="Script" path="res://Scenes/Player/Torch.gd" id="1_df601"]
 [ext_resource type="Script" path="res://Scenes/Player/Player.gd" id="1_ukw6o"]
-[ext_resource type="Resource" uid="uid://c8kfcjilj54xu" path="res://Scenes/UI/Resources/player_inventory0.tres" id="2_ew8dt"]
+[ext_resource type="Resource" uid="uid://c8kfcjilj54xu" path="res://Scenes/UI/Resources/Party Inventories/player_inventory0.tres" id="2_hqbnn"]
 [ext_resource type="Resource" uid="uid://bd6l4kiwp5wdk" path="res://Scenes/Player/player_party.tres" id="3_4pqhr"]
-[ext_resource type="Resource" uid="uid://c87y1cecp0iki" path="res://Scenes/UI/Resources/player_inventory1.tres" id="3_7qwfm"]
-[ext_resource type="Resource" uid="uid://drb1ehjvbfse3" path="res://Scenes/UI/Resources/player_inventory2.tres" id="4_pwq4f"]
-[ext_resource type="Resource" uid="uid://bwihy11evp523" path="res://Scenes/UI/Resources/player_inventory3.tres" id="5_sqi5m"]
+[ext_resource type="Resource" uid="uid://c87y1cecp0iki" path="res://Scenes/UI/Resources/Party Inventories/player_inventory1.tres" id="3_fjta4"]
+[ext_resource type="Resource" uid="uid://drb1ehjvbfse3" path="res://Scenes/UI/Resources/Party Inventories/player_inventory2.tres" id="4_v2x4y"]
+[ext_resource type="Resource" uid="uid://bwihy11evp523" path="res://Scenes/UI/Resources/Party Inventories/player_inventory3.tres" id="5_7ejuh"]
 
 [node name="Player" type="Node3D"]
 script = ExtResource("1_ukw6o")
-party_inventories = Array[Resource("res://Scenes/UI/inventory_data.gd")]([ExtResource("2_ew8dt"), ExtResource("3_7qwfm"), ExtResource("4_pwq4f"), ExtResource("5_sqi5m")])
+party_inventories = Array[Resource("res://Scenes/UI/inventory_data.gd")]([ExtResource("2_hqbnn"), ExtResource("3_fjta4"), ExtResource("4_v2x4y"), ExtResource("5_7ejuh")])
 party_data = ExtResource("3_4pqhr")
 
 [node name="Torch" type="OmniLight3D" parent="."]

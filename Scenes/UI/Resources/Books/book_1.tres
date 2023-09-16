@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://dit4vk0w2inm0"]
+
+[ext_resource type="Script" path="res://Scenes/UI/item_data.gd" id="1_wtl3o"]
+[ext_resource type="Texture2D" uid="uid://bw80w4c474ogq" path="res://Assets/Textures/UI/Items/book.png" id="2_ffqra"]
+
+[resource]
+script = ExtResource("1_wtl3o")
+name = "Accounts of Yllian"
+desc = "A tome that contains works from the ancient historian Yllian of the Ep'zamus people. You notice one that's been translated. \"Those infernal corpses keep rising from the tombs of our dead and beloved. They only mutter but one word which they have become to be known by. \"Mahtu\". A good rain of fire from any source has proven to inflict heavy damage\""
+stackable = false
+texture = ExtResource("2_ffqra")

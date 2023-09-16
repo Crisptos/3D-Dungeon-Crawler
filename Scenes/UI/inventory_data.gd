@@ -39,11 +39,14 @@ func drop_slot_data(grabbed_slot_data: SlotData, index: int) -> SlotData:
 
 func use_slot_data(index: int):
 	var slot_data = slot_array[index]
-	if slot_data:
+	if not slot_data:
+		return
+	if slot_data.item_data is ItemDataConsumable:
 		slot_data.use_item()
 		if slot_data.get_total() == 0:
 			slot_array[index] = null
 		inventory_updated.emit(self)
+		CharacterHandler.use_slot_data(slot_data, id)
 	else:
 		return
 

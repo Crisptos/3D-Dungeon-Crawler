@@ -8,3 +8,6 @@ class_name ItemData
 @export_multiline var desc: String = ""
 @export var stackable: bool = false
 @export var texture: Texture
+
+func use(target) -> void:
+	pass
